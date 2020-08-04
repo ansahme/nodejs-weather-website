@@ -3,8 +3,9 @@ const address = document.querySelector('input');
 const p1 = document.querySelector('#p1');
 const p2 = document.querySelector('#p2');
 
+
 const getWeather =function(address){
-    const url ='http://localhost:3000/weather?address=';
+    const url ='/weather?address=';
     fetch(url+address).then((response)=>{
     response.json().then((data) => {
         if(data.error){
