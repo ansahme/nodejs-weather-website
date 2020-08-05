@@ -7,10 +7,14 @@ forecast = (lat,long,callback) =>{
         }else if(body.error){
            callback("Error: Unalbe to find location",undefined);
         }else{
+           // console.log(body.location.localtime);
+           // console.log(body.current.weather_icons[0]);
             callback(undefined,{
                description: body.current.weather_descriptions[0],
                current_temperatur:body.current.temperature,
-               Feels_like:body.current.feelslike
+               Feels_like:body.current.feelslike,
+               localTime:body.location.localtime,
+               weatherIcon: body.current.weather_icons[0]
             })
         }
     });

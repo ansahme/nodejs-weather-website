@@ -54,7 +54,8 @@ app.get('/weather',(req, res)=>{
         if(error){
             return res.send({error});
         }
-        forecast(latitude,longitude,(error,{description,current_temperatur,Feels_like})=>{
+        forecast(latitude,longitude,(error,{description,current_temperatur,Feels_like,localTime,
+            weatherIcon})=>{
            if(error){
             return res.send({error});
            }
@@ -64,7 +65,9 @@ app.get('/weather',(req, res)=>{
               temperature:current_temperatur,
               feesLike:Feels_like,
               location,
-              address:req.query.address
+              address:req.query.address,
+              localTime,weatherIcon
+
           });
        });
     });
